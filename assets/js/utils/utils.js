@@ -93,7 +93,7 @@ class Utils {
     static getPopularityData() {
 
         let data = {
-            "photo":"\/assets\/img\/avatar15.png",
+            "photo":"\./assets\/img\/avatar15.png",
             "notations":{
                 "2016-06-08":["2","4"],
                 "2016-06-20":["3"],

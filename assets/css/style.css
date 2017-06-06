@@ -7,11 +7,50 @@ p, h1, h2, h3 {
 }
 
 .section {
-    height: 100vh;
-    display: flex;
+    display: block;
+}
+
+.card-block {
+    padding: 40px;
+}
+
+.card {
+    min-height: calc(50vh);
+}
+
+.navbar {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    border: 1px solid;
+    border-top: 0;
 }
 
 h1 {
     text-align: center;
-    color: white;
+    color: black;
+    width: calc(100% - 40px);
+    margin: 0 20px 40px 20px;
+}
+
+#avatar-data-axis {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#date-axis {
+    float: left;
+}
+
+#message-axis,
+#bar {
+    float: left;
+    width: 50% !important;
+}
+
+.all,
+.masculin,
+.feminin {
+    cursor: pointer;
 }

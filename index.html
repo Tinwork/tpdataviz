@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>D3JS - Antoine Reunault, Didier Youn, Marc Intha-amnouay</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/jquery.jqplot.css"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/jquery.jqplot.css">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script type="text/javascript" src="assets/js/chart/bar.js"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 
 
+
+
     <!-- JQPLOT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/jquery.jqplot.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.categoryAxisRenderer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/jquery.jqplot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.categoryAxisRenderer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.barRenderer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.dateAxisRenderer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.pieRenderer.min.js"></script>
@@ -39,95 +45,103 @@
     <script type="text/javascript" src="assets/js/plot/dataPie.js"></script>
     <script type="text/javascript" src="assets/js/init.js"></script>
 </head>
+
 <body>
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">Navbar</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                         Dropdown button
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
             </ul>
         </div>
     </nav>
-    <div class="card">
+    <div class="card" style="padding: 56px 0 0 0;">
         <div class="card-block">
             <h1>Q2. Evolution de la popularité (notation) au fil du mois</h1>
             <div class="section">
-                <div id="date-axis" style="width: 50vw; height: 50vh"></div>
+                <div id="date-axis" style="width: 50%;  height: 50vh;  position: relative;"></div>
                 <img id="avatar-data-axis">
             </div>
         </div>
     </div>
     <div class="card">
-        <h1>Q3. Message percent</h1>
-        <div class="section">
-            <div id="message-axis" style="width: 50vw; height: 50vh"></div>
-            <div id="bar"></div>
-        </div>
-    </div>
-    <div class="section">
-        <h1>Répartition des amis par tranche d'age sexe</h1>
-        <div id="sex-axis" style="width: 50vw; height: 50vh; margin-top: 200px;"></div>
-    </div>
-    <div class="section">
-        <h1>Popularité de votre profil pour un sexe donné par tranche de notation</h1>
-        <div id="popular-axis" style="width: 50vw; height: 50vh; margin-top: 200px;"></div>
-        <div id="radar"></div>
-    </div>
-    <div class="section">
-            <div class="canvas">
-                <h1>Scatterpot Popularité/Age</h1>
-                
-                <h3>Légendes</h3>
-                <p><span class="blue">Blue</span> - Sexe feminin</p>
-                <p><span class="red">Red</span> - Sexe masculin</p>
-                
-                <h3>Actions</h3>
-                <p class="all">Tout</p>
-                <p class="masculin">Seulement sexe masculin</p>
-                <p class="feminin">Seulement sexe feminin</p>
-                <br />
-                
-                <div class="data">
+        <div class="card-block">
+            <h1>Q3. Message percent</h1>
+            <div class="section">
+                <div id="message-axis" </div>
+                    <div id="bar"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="section" id="pie-d3">
-        <div class="canvas">
-            <h1>Pourcentage Masculin / Féminin dans ses amis</h1>
-            <h3>Légendes</h3>
-            <p><span class="blue">Blue</span> - Sexe feminin</p>
-            <p><span class="red">Red</span> - Sexe masculin</p>
-
-            <div class="data">
+        <div class="card">
+            <div class="card-block">
+                <h1>Répartition des amis par tranche d'age sexe</h1>
+                <div id="sex-axis" style="width: 50vw; height: 50vh;"></div>
             </div>
         </div>
-    </div>
+        <div class="card">
+            <div class="card-block">
+                <h1>Popularité de votre profil pour un sexe donné par tranche de notation</h1>
+                <div id="popular-axis" style="width: 50vw; height: 50vh;"></div>
+                <div id="radar"></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-block">
+                <div class="canvas">
+                    <h1>Q7 - Scatterpot Popularité/Age</h1>
 
+                    <h3>Actions</h3>
+                    <button class="btn all">Tout</button>
+                    <button class="btn masculin">Seulement sexe masculin</button>
+                    <button class="btn feminin">Seulement sexe feminin</button>
+
+                    <div class="data">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="pie-d3">
+            <div class="card-block">
+                <div class="canvas">
+                    <h1>Q4 - Pourcentage Masculin / Féminin dans ses amis</h1>
+                    <h3>Légendes</h3>
+                    <p><span class="blue">Blue</span> - Sexe feminin</p>
+                    <p><span class="red">Red</span> - Sexe masculin</p>
+
+                    <div class="data">
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
+
 </html>
