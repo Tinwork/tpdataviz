@@ -1,18 +1,15 @@
 ﻿<?php
-	// On se connecte de la BDD
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$bdd_name = "tp_note_dataviz";
+// On se connecte de la BDD
+$servername = "db";
+$port = 3306;
+$username = "root";
+$password = "admin";
+$bdd_name = "app";
 
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $bdd_name);
+$conn = new PDO('mysql:host=mysql;port='. $port .';dbname=' .$bdd_name, $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-	// Check connection
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
-	
-	// Set le charset en UTF8 (pour éviter les problèmes d'accent)
-	mysqli_set_charset($conn, "utf8")
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
