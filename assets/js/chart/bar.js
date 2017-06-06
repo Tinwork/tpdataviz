@@ -7,7 +7,7 @@ const bar = (() => {
      * Init Draw
      */
     const initDraw = () => {
-        Utils.fetcher({method: 'GET', endpoint: 'http://localhost:8888/tpdataviz/json/bar.json'})
+        Utils.getMessagePercentD3()
         .then(appendSVG)
         .then(draw)
         .catch(e => console.log(e));
@@ -39,12 +39,13 @@ const bar = (() => {
      * @param {Object} datas
      */
     const draw = (datas) => {
+        console.log(datas);
         let axis = d3.scaleTime().range([0, 300]);
         let x = d3.scaleBand().rangeRound([0, SIZE.width]).padding(0.1),
             y = d3.scaleLinear().rangeRound([SIZE.height, 0]);
 
         x.domain(datas.tick.map((d) => { return d; }));
-        y.domain([0, d3.max(datas.data, (d) => { return d.y; })]);
+        y.domain([0, 100]);
 
         svg.append('g')
            .attr('class', 'axis axis--x')
@@ -53,7 +54,7 @@ const bar = (() => {
 
         svg.append('g')
            .attr('class', 'axis axis--y')
-           .call(d3.axisLeft(y).ticks(10, '%'))
+           .call(d3.axisLeft(y).ticks(10))
            .append('text')
            .attr('transform', 'rotate(-90)')
            .attr('y', 6)
