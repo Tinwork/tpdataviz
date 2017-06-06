@@ -46,6 +46,7 @@ const doCloud = (() => {
         var svg = d3
             .select(scatterConfig.selector)
             .append("svg")
+            .attr('id', 'cloud')
             .attr("width", scatterConfig.w)
             .attr("height", scatterConfig.h);
 
@@ -141,23 +142,34 @@ const doCloud = (() => {
 
     let listener = () => {
         document.querySelector('.all').addEventListener('click', function () {
-            document.querySelector('svg').remove()
+            removeAllAxis();
+            document.getElementById('cloud').remove()
             dataset = generateScatterData();
             drawScatterData();
         })
 
         document.querySelector('.masculin').addEventListener('click', function () {
-            document.querySelector('svg').remove()
+            removeAllAxis();
+            document.getElementById('cloud').remove()
             dataset = generateScatterData(1);
             drawScatterData();
         })
 
         document.querySelector('.feminin').addEventListener('click', function () {
-            document.querySelector('svg').remove()
+            removeAllAxis();
+            document.getElementById('cloud').remove()
             dataset = generateScatterData(0);
             drawScatterData();
         })
     }
+
+
+    const removeAllAxis = () => {
+        let axis = document.getElementsByClassName('axis');
+        for (let idx of axis) {
+            idx.remove();
+        }
+    };
 
     
 

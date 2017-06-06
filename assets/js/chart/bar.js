@@ -45,7 +45,7 @@ const bar = (() => {
             y = d3.scaleLinear().rangeRound([SIZE.height, 0]);
 
         x.domain(datas.tick.map((d) => { return d; }));
-        y.domain([0, d3.max(datas.data, (d) => { return d.y; })]);
+        y.domain([0, 100]);
 
         svg.append('g')
            .attr('class', 'axis axis--x')
@@ -54,7 +54,7 @@ const bar = (() => {
 
         svg.append('g')
            .attr('class', 'axis axis--y')
-           .call(d3.axisLeft(y).ticks(10, '%'))
+           .call(d3.axisLeft(y).ticks(10))
            .append('text')
            .attr('transform', 'rotate(-90)')
            .attr('y', 6)

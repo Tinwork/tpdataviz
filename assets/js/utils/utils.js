@@ -9,7 +9,7 @@ class Utils {
     static fetcher(props) {
 
         // Define the variable
-        const {method, data, endpoint} = props,
+        const {method, data, endpoint, chartType} = props,
               HEADER = new Headers();
 
         let opts = Object.assign({}, {
@@ -23,8 +23,18 @@ class Utils {
 
         return fetch(endpoint, opts)
                 .then(payload => payload.json())
-                .then(res => Promise.resolve(res))
+                .then(payload => Utils.filterData(type, payload))
+                .then(data => Promise.resolve(data))
                 .catch(e => Promise.reject(e));
+    }
+
+    /**
+     * Filter Data
+     * @param {String} type
+     * @param {Object} payload 
+     */
+    static filterData(type, payload) {
+
     }
 
     /**
@@ -45,20 +55,6 @@ class Utils {
         })
     }
 
-    /**
-     * Percent To Radius
-     *      Convert a string percent to a radius
-     * @param {Number} percent 
-     */
-    static percentToRadius(percent) {
-        if (typeof percent === 'string')
-            percent = parseInt(percent);
-
-        if (percent == NaN) 
-            throw new Error('percent is not a string');
-
-        return ((2 * Math.PI) * percent) / 100;
-    }
 
     /**
      * Center SVG
