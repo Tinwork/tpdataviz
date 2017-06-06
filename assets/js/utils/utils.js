@@ -34,7 +34,28 @@ class Utils {
      * @param {Object} payload 
      */
     static filterData(type, payload) {
+        let data;
+        switch (type) {
+            case "popularity":
+                data = getPopularityData(payload);
+            break;
+            case "pie":
+                data = getPieData(payload);
+            break;
+            case "stack":
+                data = getSexRep(payload);
+            break;
+            case "percent":
+                data = getMessagePercent(payload);
+            break;
+            case "bar":
+                data = getMessagePercentD3(payload);
+            break;
+            case "cloud":
+            break;
+        }
 
+        return Promise.resolve(data);
     }
 
     /**
@@ -90,7 +111,7 @@ class Utils {
         return type.replace(/[\[\]']+/g, '').split('object')[1].trim();
     };
 
-    static getPopularityData() {
+    static getPopularityData(datas) {
 
         let data = {
             "photo":"\./assets\/img\/avatar15.png",
@@ -110,7 +131,7 @@ class Utils {
     }
 
     /**
-     * 
+     * Get Message Percent
      */
     static getMessagePercent(){
         const data = {
@@ -124,7 +145,9 @@ class Utils {
         return Promise.resolve({tick: Object.keys(data.messages), data: Object.values(data.messages)});
     }
 
-
+    /**
+     * Get Message Percent D3
+     */
     static getMessagePercentD3() {
         const data = {
             "user":"12",
@@ -153,6 +176,9 @@ class Utils {
         return Promise.resolve(u);
     }
 
+    /**
+     * Get Sex Rep
+     */
     static getSexRep() {
          let data = {
              "user":"12",
@@ -188,6 +214,9 @@ class Utils {
         return Promise.resolve({tick: ageticks, f: fCat, s: sCat, t: tCat});
     }
 
+    /**
+     * Get Pie Data
+     */
     static getPieData() {
        let arr = [];
        let data =  {
@@ -213,5 +242,68 @@ class Utils {
         }
 
         return Promise.resolve(arr);
+    }
+
+    /**
+     * Get CLoud Data
+     */
+    static getCloudData() {
+        let d = {
+            "user":{"id":"20"},
+            "query":"female",
+            "popularity":{
+                "female":{
+                    "18-21":1,
+                    "22-25":0,
+                    "26-29":0
+                },
+                "male": {
+                     "18-21":2,
+                    "22-25":1,
+                    "26-29":0
+                }
+            }
+        }
+
+        let data = [];
+
+        for (let gender in d.popularity) {
+            for (let idx in d.popularity[gender]) {
+                if (d.popularity[gender][idx] === 0) 
+                    continue;
+
+                data.push({
+                    notation: d.popularity[gender][idx],
+                    age: parseInt(idx),
+                    gender: gender === 'female' ? 0 : 1
+                })
+            }
+        }
+
+        console.log(data);
+        return Promise.resolve(data);
+    }
+
+    static doCumul() {
+        let d = {
+                "user":{"id":"1"},
+                "popularity":{
+                    "2016-06-02":1,
+                    "2016-06-03":3,
+                    "2016-06-05":4,
+                    "2016-06-08":5,
+                    "2016-06-16":6
+                }
+            }
+
+    
+        let arr = [];
+        for (let i in d.popularity) {
+            arr.push([i, d.popularity[i]]);
+        }
+
+        console.log(arr);
+        return Promise.resolve(arr);
+
     }
 }

@@ -5,7 +5,8 @@ const radial = (() => {
      * Init Draw
      */
     const initDraw = () => {
-        Utils.fetcher({method: 'POST', endpoint: 'http://local.dev:8080/json/radial.json'})
+        //Utils.fetcher({method: 'POST', endpoint: 'http://local.dev:8080/json/radial.json'})
+        Utils.getPieD3()
              .then(appendSVG)
              .then(draw)
              .catch(e => console.log(e));
@@ -25,13 +26,13 @@ const radial = (() => {
      */
     const draw = (datas) => {
         svg.selectAll('g')
-              .data(datas.data)
+              .data(datas)
               .enter()
               .append('path')
               .attr('d', (d,i) => {
                 return Utils.drawArc({
-                    inner: i * 20,
-                    outer: i * 30 + 5,
+                    inner: 0,
+                    outer: 50,
                     start: 0,
                     end: 0
                 })
@@ -44,8 +45,8 @@ const radial = (() => {
               .attrTween('d', (d, i) => {
                   return (t) => {
                       return Utils.drawArc({
-                          inner: i * 20,
-                          outer: i * 30 + 5,
+                          inner: 0,
+                          outer: 50,
                           start: 0,
                           end: t * d.end
                       })

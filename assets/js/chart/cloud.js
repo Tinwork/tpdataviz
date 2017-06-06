@@ -1,12 +1,15 @@
 const doCloud = (() => {
+
+    let datas;
+    let dataset;
     var scatterConfig = {
         w: 1000,
         h: 300,
         padding: 30,
         selector: '.data',
         colors: {
-            male: 'red',
-            female: 'blue'
+            male: 'blue',
+            female: 'red'
         }
     };
 
@@ -16,7 +19,7 @@ const doCloud = (() => {
             .domain([
                 0,
                 d3.max(dataset, function (d) {
-                    return d.user_id;
+                    return d.age;
                 })
             ])
             .range([scatterConfig.padding, scatterConfig.w - scatterConfig.padding * 2]);
@@ -62,7 +65,7 @@ const doCloud = (() => {
                 }
             })
             .attr("cx", function (d) {
-                return xScale(d.user_id);
+                return xScale(d.age);
             })
             .attr("cy", function (d) {
                 return yScale(d.notation);
@@ -96,35 +99,7 @@ const doCloud = (() => {
     };
 
     var generateScatterData = function (gender) {
-        /*
-	previous dataSet
-	[
-		[user_id, notation]
-	]
-	
- 	forEach(function (data) {
-		getGender
-		getAge
-	}) 
-	*/
-
-        var dataset = [{
-                notation: '4',
-                user_id: 26,
-                gender: 0
-            },
-            {
-                notation: '2',
-                user_id: 35,
-                gender: 1
-            },
-            {
-                notation: '5',
-                user_id: 14,
-                gender: 0
-            },
-        ]
-
+        dataset = datas.slice();
         if (gender === 0 ||  gender === 1) {
             var tmp = []
             dataset.forEach(function (data) {
@@ -134,10 +109,10 @@ const doCloud = (() => {
             })
             dataset = tmp
         }
+
         return dataset;
     };
 
-    var dataset = generateScatterData();
     //drawScatterData();
 
     let listener = () => {
@@ -172,9 +147,19 @@ const doCloud = (() => {
     };
 
     
+    const initDraw = () => {
+        Utils.getCloudData()
+             .then(d => {
+                datas = d;
+                generateScatterData();
+                drawScatterData();
+                listener();
+             })
+    
+    }
+    
 
     return {
-        draw: drawScatterData,
-        listener: listener
+        draw: initDraw,
     }
 })();
