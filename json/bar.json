@@ -1,0 +1,25 @@
+{
+    "data": [{
+        "x": "Monday",
+        "y": 30
+    }, {
+        "x": "Tuesday",
+        "y": 35
+    }, {
+        "x": "Wednesday",
+        "y": 50
+    }, {
+        "x": "Thursday",
+        "y": 100
+    }, {
+        "x": "Friday",
+        "y": 80
+    }],
+    "tick": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+    ]
+}
