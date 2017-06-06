@@ -5,7 +5,7 @@ const dataPie = ((_) => {
      * Init Draw
      */
     const initDraw = () => {
-        Utils.getSexRep()
+        Utils.getPieData()
              .then(draw)
              .catch(e => Promise.reject(e));
     };
@@ -14,8 +14,16 @@ const dataPie = ((_) => {
      * 
      * @param {Object} data 
      */
-    const draw = (props) => {
-        let dateAxisPlot = _.jqplot('popular-axis', [[1,2,3,4]], {seriesDefaults:{renderer:$.jqplot.PieRenderer}});
+    const draw = (data) => {
+        let dateAxisPlot = _.jqplot('popular-axis', [data], {
+            seriesDefaults:{
+                renderer: _.jqplot.PieRenderer,
+                rendererOptions: {
+                    showDataLabels: true
+                }
+            },
+            legend: { show:true, location: 'e' }
+        });
         return Promise.resolve();
     };
 

@@ -12,6 +12,7 @@
         dataPie.draw();
         doCloud.draw();
         doCloud.listener();
+        d3Pie.draw();
     };
 
     document.addEventListener('DOMContentLoaded', makeChart);

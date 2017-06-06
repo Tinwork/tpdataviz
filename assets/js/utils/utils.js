@@ -193,6 +193,29 @@ class Utils {
     }
 
     static getPieData() {
-        return Promise.resolve();
+       let arr = [];
+       let data =  {
+                    "user": {
+                        "photo":"\/assets\/img\/avatar12.jpg","id":"22"
+                    },
+                    "query":"male",
+                    "popularity":{
+                        "male":{
+                            "rate_0":0,
+                            "rate_1":1,
+                            "rate_2":0,
+                            "rate_3":1,
+                            "rate_4":0,
+                            "rate_5":0}
+                        }
+                    }
+
+        for (let gender in data.popularity) {
+            for (let idx in data.popularity[gender]) {
+                arr.push([idx.split('rate_')[1], data.popularity[gender][idx]]);
+            }
+        }
+
+        return Promise.resolve(arr);
     }
 }
