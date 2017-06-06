@@ -7,7 +7,7 @@ const bar = (() => {
      * Init Draw
      */
     const initDraw = () => {
-        Utils.fetcher({method: 'GET', endpoint: 'http://localhost:8888/tpdataviz/json/bar.json'})
+        Utils.getMessagePercentD3()
         .then(appendSVG)
         .then(draw)
         .catch(e => console.log(e));
@@ -39,6 +39,7 @@ const bar = (() => {
      * @param {Object} datas
      */
     const draw = (datas) => {
+        console.log(datas);
         let axis = d3.scaleTime().range([0, 300]);
         let x = d3.scaleBand().rangeRound([0, SIZE.width]).padding(0.1),
             y = d3.scaleLinear().rangeRound([SIZE.height, 0]);

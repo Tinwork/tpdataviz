@@ -6,12 +6,6 @@ services:
             - "8080:80"
         volumes:
             - .:/data/www/
-
-            - ./utils/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-            - ./utils/docker/nginx/conf/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-
-            - ./utils/docker/nginx/log/error.log:/var/log/nginx/error.log
-            - ./utils/docker/nginx/log/access.log:/var/log/nginx/access.log
         links:
             - phpfpm:phpfpm
             - mysql:db
@@ -20,7 +14,7 @@ services:
             MYSQL_DB_PASSWORD : admin
             MYSQL_DB_HOST : db
     phpfpm:
-        image: didyoun/php7-fpm
+        image: zendpokemon_phpfpm
         ports:
             - "9000:9000"
         volumes:

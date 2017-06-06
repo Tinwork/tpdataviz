@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>D3JS - Antoine Reunault, Didier Youn, Marc Intha-amnouay</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="assets/js/chart/bar.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <!-- JQPLOT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/jquery.jqplot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/jquery.jqplot.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.categoryAxisRenderer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.barRenderer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.dateAxisRenderer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.9/plugins/jqplot.pieRenderer.min.js"></script>
+
+
+    <!-- Our D3 js -->
+    <script type="text/javascript" src="assets/js/utils/utils.js"></script>
+    <script type="text/javascript" src="assets/js/chart/cloud.js"></script>
+    <!--<script type="text/javascript" src="assets/js/chart/radial.js"></script>
+    <script type="text/javascript" src="assets/js/chart/bar.js"></script>-->
+
+    <!-- Our JQPLOT js -->
+    <script type="text/javascript" src="assets/js/plot/datePopularity.js"></script>
+    <script type="text/javascript" src="assets/js/plot/dataPercent.js"></script>
+    <script type="text/javascript" src="assets/js/plot/dataStack.js"></script>
+    <script type="text/javascript" src="assets/js/plot/dataPie.js"></script>
+    <script type="text/javascript" src="assets/js/init.js"></script>
+</head>
+<body>
+<div class="section">
+    <h1>Evolution de la popularité (notation) au fil du mois</h1>
+    <div id="date-axis" style="width: 50vw; height: 50vh"></div>
+    <img id="avatar-data-axis">
+</div>
+<div class="section"  >
+    <h1>Message percent</h1>
+    <div id="message-axis" style="width: 50vw; height: 50vh"></div>
+    <div id="bar"></div>
+</div>
+<div class="section">
+    <h1>Répartition des amis par tranche d'age sexe</h1>
+    <div id="sex-axis" style="width: 50vw; height: 50vh; margin-top: 200px;"></div>
+</div>
+<div class="section">
+    <h1>Popularité de votre profil pour un sexe donné par tranche de notation</h1>
+    <div id="popular-axis" style="width: 50vw; height: 50vh; margin-top: 200px;"></div>
+    <div id="radar"></div>
+</div>
+<div class="section">
+    <div class="canvas">
+        <h1>Scatterpot Popularité/Age</h1>
+        
+        <h3>Légendes</h3>
+        <p><span class="blue">Blue</span> - Sexe feminin</p>
+        <p><span class="red">Red</span> - Sexe masculin</p>
+        
+        <h3>Actions</h3>
+        <p class="all">Tout</p>
+        <p class="masculin">Seulement sexe masculin</p>
+        <p class="feminin">Seulement sexe feminin</p>
+        <br />
+        
+        <div class="data">
+	</div>
+</div>
+</div>
+
+</body>
+</html>
