@@ -19,15 +19,15 @@
 		if($user != 0) {
 			$query = $query." WHERE photo IN (".$user.")";
 		}
-		
-		$result = mysqli_query($conn, $query);
-	
-		while ($row = mysqli_fetch_array($result)) {
+
+        $query = $conn->prepare($query);
+        $query->execute();
+        $res = $query->fetchAll();
+
+        foreach ($res as $row) {
 			$result_request[] = array(intval($row[0]), $row[1], $row[2]);
 		}
 
-		mysqli_free_result($result);
-	
 		// Déconnexion de la BDD
 		include("../bdd/deconnexion_bdd.php");
 	}

@@ -3,7 +3,7 @@ const doCloud = (() => {
     let datas;
     let dataset;
     var scatterConfig = {
-        w: 1000,
+        w: 500,
         h: 300,
         padding: 30,
         selector: '.data',
