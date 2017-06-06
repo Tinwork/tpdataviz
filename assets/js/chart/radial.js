@@ -5,7 +5,7 @@ const radial = (() => {
      * Init Draw
      */
     const initDraw = () => {
-        Utils.fetcher({method: 'POST', endpoint: 'http://localhost:8888/tpdataviz/json/radial.json'})
+        Utils.fetcher({method: 'POST', endpoint: 'http://local.dev:8080/json/radial.json'})
              .then(appendSVG)
              .then(draw)
              .catch(e => console.log(e));
