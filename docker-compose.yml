@@ -5,7 +5,7 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - .:/data/www/
+            - .:/var/www/html
         links:
             - phpfpm:phpfpm
             - mysql:db
