@@ -34,9 +34,9 @@ h1 {
 }
 
 #avatar-data-axis {
-    width: 50%;
-    height: 100%;
-    float: left;
+    width: auto;
+    height: 50vh;
+    float: right;
 }
 
 #date-axis {
@@ -47,6 +47,15 @@ h1 {
 #bar {
     float: left;
     width: 50% !important;
+}
+
+.left {
+    width: 50%;
+    float: left;
+}
+
+.axis {
+    position: absolute;
 }
 
 .all,
